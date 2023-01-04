@@ -1,15 +1,13 @@
 const botao = document.querySelectorAll(".button");
 const visor = document.querySelector(".screen");
-const clear = document.querySelector(".button-clear");
+const clearall = document.querySelector(".button-clearAll");
 const igual = document.querySelector(".button-equal");
+const clear = document.querySelector(".button-clear");
 
 
 let limite = 0;
 let limite2 = 0;
 
-number = '';
-numbers = new Array;
-sinais = new Array;
 
 for(i = 0; i<botao.length; i++)
 {
@@ -30,37 +28,34 @@ for(i = 0; i<botao.length; i++)
 }
 
 
-clear.addEventListener('click', () => {
+clearall.addEventListener('click', () => {
     visor.innerText = '';
     limite = 0;
     limite2 = 0;
 })
 
 igual.addEventListener('click', () => {
-    for(i=0; i<visor.innerText.length; i++){
-        if(!(visor.innerText[i] == '-' || visor.innerText[i] == 'x' || visor.innerText[i] == '+' || visor.innerText[i] == '÷'))
+    let equa = visor.innerText.toString();
+    for(i=0; i<equa.length; i++){
+        if(equa[i] == 'x' )
         {
-            number += visor.innerText[i];
-        }else{
-            numbers.push(number);
-            number = '';
-            sinais.push(visor.innerText[i]);
+           equa = equa.replace('x', '*');
+        }
+        if(equa[i] == '÷')
+        {
+            equa = equa.replace('÷', '/');
         }
     
     }
-    numbers.push(number);
-    console.log(numbers);
-    console.log(sinais);
-    visor.innerText = calcula(numbers, sinais);
+
+    visor.innerText = eval(equa);
     limite = 0;
     limite2 = 0;
-    number = '';
-    numbers = [];
-    sinais = [];
 
 })
 
-function calcula(numeros, sns)
-{
-   return +numeros[0] + sns[0] +numeros[1]
-}
+clear.addEventListener('click', () => {
+    visor.innerText = visor.innerText.slice(0, -1);
+    limite = 0;
+    limite2 = 0;
+})
