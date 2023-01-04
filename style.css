@@ -5,7 +5,7 @@
 .container{
     background-color: gray;
     
-    width: 65%;
+    width: 70%;
     margin: 15px auto;
     height: 600px;
     
@@ -14,6 +14,18 @@
 
     display: flex;
     flex-direction: column;
+}
+.section-screen{
+    position: relative;
+}
+.shine{
+    background-color: rgba(255, 255, 255, 0.027);
+
+    width: 100%;
+    height: 20px;
+    
+    position: absolute;
+    bottom: -2px;
 }
 .screen{
     background-color: black;
@@ -26,15 +38,10 @@
     box-sizing: border-box;
 
     color: white;
-    font-size: 2.5rem;
+    font-size: 3vw;
     text-align: end;
 }
-.shine{
-    background-color: rgba(255, 255, 255, 0.027);
 
-    width: 100%;
-    height: 12px;
-}
 .section-buttons{
     background-color: rgba(94, 94, 94, 0.152);
 
@@ -49,7 +56,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 0.7px;
+    gap: 1.2px;
 
     width: 100%;
 
@@ -60,16 +67,17 @@
     
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1.2px;
 
 }
-.button{
+.button, .button-clear, .button-equal{
     background-color: orange;
     width: 100%;
     height: 65px;
     
     text-align: center;
-    font-size: 30px;
+    font-size: 4vw;
     color: white;
     list-style: none;
     
@@ -81,5 +89,5 @@
     justify-content: center;
     align-items: center;
     
-    
+    cursor: pointer;
 }
